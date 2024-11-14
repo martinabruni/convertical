@@ -11,7 +11,7 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the port Flask runs on
-EXPOSE 5000
+EXPOSE 5001
 
 # Run the application
 CMD ["python", "app.py"]
@@ -21,4 +21,4 @@ CMD ["python", "app.py"]
 #    docker build -t xlsx-to-ics .
 # 2. Run the container:
 #    docker run -d -p 5000:5000 --name xlsx-to-ics-app xlsx-to-ics
-# 3. Access the app in your browser at http://localhost:5000
+# 3. Access the app in your browser at http://localhost:5001
