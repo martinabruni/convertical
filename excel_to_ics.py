@@ -46,7 +46,9 @@ def generate_ics(input_excel_path, output_ics_path, timezone_str="Europe/Rome"):
         event.name = f"{subject} - {description} CON {teacher}"
 
         # Converte data e orari in datetime
-        date_only = row["Data"].date()  # Prendi solo la parte di data senza orario
+        date_only = datetime.strptime(
+            row["Data"], "%d/%m/%Y"
+        ).date()  # Assuming the format is day/month/year
         start_time = datetime.combine(
             date_only, datetime.strptime(row["Orario inizio"], "%H,%M").time()
         )

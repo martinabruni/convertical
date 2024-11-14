@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>XLSX to ICS Converter</title>
+    <title>PDF to ICS Converter</title>
 
     <!-- Bootstrap CSS CDN -->
     <link
@@ -37,7 +37,7 @@
   <body>
     <div class="container">
       <div class="card">
-        <h1 class="text-center">Upload XLSX File to Convert to ICS</h1>
+        <h1 class="text-center">Upload PDF File to Convert to ICS</h1>
         <form
           id="uploadForm"
           action="/upload"
@@ -45,13 +45,13 @@
           enctype="multipart/form-data"
         >
           <div class="mb-3">
-            <label for="file" class="form-label">Choose your XLSX file</label>
+            <label for="file" class="form-label">Choose your PDF file</label>
             <input
               type="file"
               name="file"
               id="file"
               class="form-control"
-              accept=".xlsx"
+              accept=".pdf"
               required
             />
           </div>

@@ -1,7 +1,8 @@
 from flask import Flask, request, send_file, render_template
 import os
 import pandas as pd
-from script import (
+from pdf_to_excel import generate_excel
+from excel_to_ics import (
     generate_ics,
 )  # Assuming your modified script logic is in `generate_ics` function
 
@@ -27,8 +28,8 @@ def upload_file():
     if file.filename == "":
         return "No selected file", 400
 
-    if not file.filename.endswith(".xlsx"):
-        return "Invalid file format. Please upload an .xlsx file.", 400
+    if not file.filename.endswith(".pdf"):
+        return "Invalid file format. Please upload an .pdf file.", 400
 
     # Save the uploaded file
     filepath = os.path.join(UPLOAD_FOLDER, file.filename)
@@ -36,9 +37,11 @@ def upload_file():
 
     # Process the file
     try:
+        output_excel = os.path.join(OUTPUT_FOLDER, "calendar.xlsx")
         output_file = os.path.join(OUTPUT_FOLDER, "calendar.ics")
+        generate_excel(filepath, output_excel)
         generate_ics(
-            filepath, output_file
+            output_excel, output_file
         )  # Use your script's function to create the .ics file
     except Exception as e:
         return f"An error occurred: {str(e)}", 500
