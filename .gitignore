@@ -1,0 +1,44 @@
+# Python specific
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+env/
+venv/
+ENV/
+.venv/
+
+# Byte-compiled files
+*.class
+
+# Distribution / packaging
+*.egg
+*.egg-info/
+dist/
+build/
+*.wheel
+
+# Flask specific
+instance/
+*.log
+
+# VSCode specific
+.vscode/
+
+# Docker specific
+*.pid
+docker-compose.override.yml
+
+# Environment files
+.env
+.env.*
+
+# Uploads and Outputs
+uploads/
+outputs/
+
+# OS specific
+.DS_Store
+Thumbs.db
